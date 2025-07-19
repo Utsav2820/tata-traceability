@@ -65,7 +65,7 @@ const App = () => {
             <img
               src={tataItLogo}
               alt="Watermark"
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[60%] w-[3~00px] opacity-20 rounded-full pointer-events-none z-0"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[60%] w-[300px] opacity-20 rounded-full pointer-events-none z-0"
             />
 
             {/* Area Dropdown */}
@@ -144,7 +144,7 @@ const App = () => {
             <img
               src={tataQuoteLogo}
               alt="Tata Quote"
-              className="w-full max-w-[90%] md:max-w-[80%] mx-auto"
+              className="w-full max-w-[90%] md:max-w-[40%] mx-auto"
             />
           </footer>
         </main>
