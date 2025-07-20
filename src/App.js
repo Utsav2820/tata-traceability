@@ -27,9 +27,11 @@ const App = () => {
       className="min-h-screen bg-[#e6f0f8] text-white"
       onClick={closeDropdowns}
     >
+
       {/* Container */}
 
-      <div className="w-[100%] max-w-[1400px] min-h-screen mx-auto bg-[#212122] shadow-lg flex flex-col overflow-hidden">
+      <div className="w-full max-w-[1400px] min-h-screen mx-auto bg-[#212122] shadow-lg flex flex-col overflow-hidden">
+
         {/* Top Header */}
 
         <header className="bg-[#053971] px-6 py-4 flex justify-between items-center shadow-md">
@@ -56,91 +58,96 @@ const App = () => {
 
         {/* Main Content */}
 
-        <main className="flex-grow flex flex-col justify-center items-center p-6 relative">
-          {/* DROPDOWN CONTAINER with relative positioning */}
+        <main className="flex-grow flex flex-col justify-between items-center p-6">
 
-          <div className="relative flex flex-col md:flex-row items-center justify-center gap-[400px] z-10 py-10">
-            {/* Watermark (between dropdowns) */}
+          {/* Dropdowns + Watermark */}
 
-            <img
-              src={tataItLogo}
-              alt="Watermark"
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[60%] w-[300px] opacity-20 rounded-full pointer-events-none z-0"
-            />
+          <div className="relative w-full flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[400px] place-items-center py-16">
 
-            {/* Area Dropdown */}
+              {/* Watermark */}
 
-            <div className="relative w-80 z-10">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  toggleArea();
-                }}
-                className={`w-full bg-black text-white border-2 border-white px-4 py-3 rounded-md flex justify-between items-center text-lg ${
-                  areaOpen ? "bg-gray-700 border-gray-300" : ""
-                }`}
-              >
-                SELECT AREA <span>&#9660;</span>
-              </button>
-              {areaOpen && (
-                <div
-                  onClick={(e) => e.stopPropagation()}
-                  className="absolute left-0 mt-2 w-full bg-white text-black shadow-md border border-gray-200 z-20 rounded"
+              <img
+                src={tataItLogo}
+                alt="Watermark"
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[30%] w-[300px] opacity-20 rounded-full pointer-events-none z-0"
+              />
+
+              {/* Area Dropdown */}
+
+              <div className="relative w-80 z-10">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleArea();
+                  }}
+                  className={`w-full bg-black text-white border-2 border-white px-4 py-3 rounded-md flex justify-between items-center text-lg ${
+                    areaOpen ? "bg-gray-700 border-gray-300" : ""
+                  }`}
                 >
-                  {["Area A", "Area B", "Area C", "Area D"].map((area) => (
-                    <a
-                      href="#"
-                      key={area}
-                      className="block px-4 py-2 hover:bg-gray-200 text-base"
-                    >
-                      {area}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
+                  SELECT AREA <span>&#9660;</span>
+                </button>
+                {areaOpen && (
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="absolute left-0 mt-2 w-full bg-white text-black shadow-md border border-gray-200 z-20 rounded"
+                  >
+                    {["Area A", "Area B", "Area C", "Area D"].map((area) => (
+                      <a
+                        href="#"
+                        key={area}
+                        className="block px-4 py-2 hover:bg-gray-200 text-base"
+                      >
+                        {area}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
 
-            {/* Machine Dropdown */}
 
-            <div className="relative w-80 z-10">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  toggleMachine();
-                }}
-                className={`w-full bg-black text-white border-2 border-white px-4 py-3 rounded-md flex justify-between items-center text-lg ${
-                  machineOpen ? "bg-gray-700 border-gray-300" : ""
-                }`}
-              >
-                MACHINE DROP DOWN MENU <span>&#9660;</span>
-              </button>
-              {machineOpen && (
-                <div
-                  onClick={(e) => e.stopPropagation()}
-                  className="absolute left-0 mt-2 w-full bg-white text-black shadow-md border border-gray-200 z-20 rounded"
+              {/* Machine Dropdown */}
+
+              <div className="relative w-80 z-10">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleMachine();
+                  }}
+                  className={`w-full bg-black text-white border-2 border-white px-4 py-3 rounded-md flex justify-between items-center text-lg ${
+                    machineOpen ? "bg-gray-700 border-gray-300" : ""
+                  }`}
                 >
-                  {[
-                    { name: "Machine Type 1", link: "m1.htm" },
-                    { name: "Machine Type 2", link: "m2.htm" },
-                    { name: "Machine Type 3", link: "m3.htm" },
-                    { name: "Machine Type 4", link: "m4.htm" },
-                  ].map((machine) => (
-                    <a
-                      href={machine.link}
-                      key={machine.name}
-                      className="block px-4 py-2 hover:bg-gray-200 text-base"
-                    >
-                      {machine.name}
-                    </a>
-                  ))}
-                </div>
-              )}
+                  MACHINE DROP DOWN MENU <span>&#9660;</span>
+                </button>
+                {machineOpen && (
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="absolute left-0 mt-2 w-full bg-white text-black shadow-md border border-gray-200 z-20 rounded"
+                  >
+                    {[
+                      { name: "Machine Type 1", link: "m1.htm" },
+                      { name: "Machine Type 2", link: "m2.htm" },
+                      { name: "Machine Type 3", link: "m3.htm" },
+                      { name: "Machine Type 4", link: "m4.htm" },
+                    ].map((machine) => (
+                      <a
+                        href={machine.link}
+                        key={machine.name}
+                        className="block px-4 py-2 hover:bg-gray-200 text-base"
+                      >
+                        {machine.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
-          {/* Tata Quote Section */}
-
-          <footer className="text-center px-4 py-6 mt-10">
+          {/* Tata Quote */}
+          
+          <footer className="text-center px-4 py-16 mt-auto">
             <img
               src={tataQuoteLogo}
               alt="Tata Quote"
